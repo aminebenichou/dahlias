@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <title>Home</title>
+</head>
+<!-- <style>
+    .container{
+        display: flex;
+    }
+    a{
+        text-decoration: none;
+        
+    }
+    .container li strong{
+        color: black;
+    }
+    .container strong{
+        color: red;
+    }
+</style> -->
+<body>
+    <h1>Notes</h1>
+    <ul>
+        {% for item in notes %}
+        <div class="container">
+            <li>
+                <a href="notes/updateNote/{{item.id}}"><strong>{{item.title}}</strong></a> 
+                <br>
+                <span>{{item.content}}</span>
+                <p>Created : {{item.created_at}}</p>
+                <p>Updated : {{item.updated_at}}</p>
+    
+            </li>
+            <a href="deleteNote/{{item.id}}/"><strong>Delete</strong></a>
+        </div>
+        {% endfor %}
+
+
+    </ul>
+    {% if not loggedIn %}
+        <a href="login/"><strong>Login</strong></a>
+    {% else %} 
+        <a href="logout/"><strong>Logout</strong></a>
+    {% endif %}
+</body>
+</html>

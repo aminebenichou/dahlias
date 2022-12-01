@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update note {{ title }} </title>
+</head>
+
+<style>
+    form{
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
+</style>
+
+<body>
+    <h6>Hello, {{ name }} </h6>
+    <form action="/updateNotePost/{{id}}/" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" id="title" value="{{title}}" > <br>
+        <textarea name="content" id="content" cols="30" rows="10" > {{content}} </textarea>
+        <br>
+        <input type="submit" value="Update">
+        
+    </form>
+</body>
+</html>

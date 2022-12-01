@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+}
+a{
+    text-decoration: none;
+    
+}
+.container li strong{
+    color: black;
+}
+.container strong{
+    color: red;
+}
